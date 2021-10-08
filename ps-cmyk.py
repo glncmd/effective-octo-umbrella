@@ -1,13 +1,10 @@
 # Converts a folder of RGB images to CMYK, 300dpi
+# Used for preparing print-ready photos from a design project in bulk.
 
-# from win32com.client import Dispatch, GetActiveObject
 from comtypes.client import GetActiveObject, CreateObject
 from os import listdir
 from os.path import join
 
-# Start up Photoshop application
-# Or get Reference to already running Photoshop application instance
-# app = Dispatch('Photoshop.Application')
 app = GetActiveObject("Photoshop.Application", dynamic=True)
 
 # Folder paths
@@ -40,9 +37,6 @@ def resize(doc, resolution):
 def convert(doc, profile):
     doc.ConvertProfile(profile, 3, True, True)
 
-def save(doc, options):
-    doc.SaveAs(join(destinationFolder, file), options, False, None)
-
 for file in listdir(directoryFolder):
     app.Open(join(directoryFolder, file))
 
@@ -50,6 +44,6 @@ for file in listdir(directoryFolder):
     
     resize(currentDoc, 300)
     convert(currentDoc, CMYK)
-    save(currentDoc, psdOptions)
-
+    
+    currentDoc.SaveAs(join(destinationFolder, file), psdOptions, False, None)
     currentDoc.Close()
