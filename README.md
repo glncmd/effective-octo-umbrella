@@ -11,6 +11,13 @@ This saves time and effort by automating the task of manually cropping a collect
 
 ---
 
+### ps-actions
+Opens each page of a .pdf file and performs a pre-recorded PS action on each one. The script then saves each page as a separate .psd file.
+
+The combination of scripting and PS actions, as demonstrated in this script, can be very powerful in automating most of the repetitive tasks in Photoshop! :)
+
+---
+
 ### ps-cmyk
 Converts a folder of RGB images / psd files to CMYK, 300dpi. Used for preparing print-ready photos from a design project in bulk.
   
