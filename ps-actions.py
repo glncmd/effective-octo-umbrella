@@ -44,5 +44,5 @@ for i in range(start_page, end_page + 1):
 
     current_doc = app.ActiveDocument
     current_doc.ActiveLayer = current_doc.Layers.Item(1)
-    current_doc.SaveAs(dest + '\\' + str(i), psd_options)
+    current_doc.SaveAs(f'{dest}\\{i}', psd_options)
     current_doc.Close()
