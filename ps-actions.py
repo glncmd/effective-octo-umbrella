@@ -15,7 +15,7 @@ pdf = "C:\\Users\\Glen\\Desktop\\_.pdf"
 dest = "C:\\Users\\Glen\\Desktop\\Result"
 
 psd_options = CreateObject("Photoshop.PhotoshopSaveOptions", dynamic=True)
-
+pdf_options = CreateObject("Photoshop.PDFOpenOptions", dynamic=True)
 
 def play_action(action_name: str):
     '''
@@ -36,7 +36,6 @@ def play_action(action_name: str):
 for i in range(start_page, end_page + 1):
     print(f'Current Page: {i}/{end_page}')
 
-    pdf_options = CreateObject("Photoshop.PDFOpenOptions", dynamic=True)
     pdf_options.Page = i
     app.Open(pdf, pdf_options, True)
 
